@@ -5,7 +5,7 @@ import {Item} from "../types/Item";
 let items: Array<Item> = [new Item({name: "תיק", weight: 1500}),
     new Item({name: "מקלות הליכה", weight: 400})];
 
-let someCategory: Category = new Category({name: "חורף", items: items})
+let someCategory: Category = new Category({name: "כללי", items: items})
 let categories: {[id: string] : Category} = {}
 
 for (let i = 0; i < 10; i++) {
