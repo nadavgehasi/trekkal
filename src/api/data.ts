@@ -2,15 +2,16 @@ import {Category} from "../types/Category";
 import {Item} from "../types/Item";
 
 
-let items: Array<Item> = [new Item({name: "תיק", weight: 1500}),
+let mainItems: Array<Item> = [new Item({name: "תיק", weight: 1500}),
     new Item({name: "מקלות הליכה", weight: 400})];
 
-let someCategory: Category = new Category({name: "כללי", items: items})
-let categories: {[id: string] : Category} = {}
+let clothesItems: Array<Item> = [new Item({name: "מעיל", weight: 500}),
+    new Item({name: "חולצה", weight: 200})];
 
-for (let i = 0; i < 10; i++) {
-    categories[i.toString()] = someCategory
-}
+let mainCategory: Category = new Category({name: "כללי", items: mainItems})
+let clothesCategory: Category = new Category({name: "בגדים", items: clothesItems})
+let categories: {[id: string] : Category} = {1: mainCategory, 2: clothesCategory}
+
 
 export const addItemToCategoryApi = (categoryId: string, newItem: Item): Category => {
     let category: Category = categories[categoryId]

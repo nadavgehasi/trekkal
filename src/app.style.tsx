@@ -23,6 +23,9 @@ const styles = StyleSheet.create({
     flexDirection: "row-reverse",
     justifyContent: "flex-start"
   },
+  pieChartView: {
+    alignSelf: "center"
+  },
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
