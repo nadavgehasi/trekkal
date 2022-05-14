@@ -22,7 +22,7 @@ const AddItemModal : React.FC<{ isVisible: boolean; addItem: (item: Item) => voi
     >
         <View style={styles.centeredView}>
             <View style={styles.modalView}>
-                <View>
+                <View style={styles.inputWithTitle}>
                     <Text style={styles.modalText}>שם: </Text>
                     <TextInput
                         style={styles.input}
@@ -30,7 +30,7 @@ const AddItemModal : React.FC<{ isVisible: boolean; addItem: (item: Item) => voi
                         onChangeText={setNewItemName}
                     />
                 </View>
-                <View>
+                <View style={styles.inputWithTitle}>
                     <Text style={styles.modalText}>משקל: </Text>
                     <TextInput
                         style={styles.input}

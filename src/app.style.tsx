@@ -2,6 +2,27 @@ import {StyleSheet} from "react-native";
 import {Colors} from "react-native/Libraries/NewAppScreen";
 
 const styles = StyleSheet.create({
+  title: {
+    flexDirection: "row-reverse",
+    justifyContent: "space-between",
+  },
+  icon: {
+    backgroundColor: "dimgrey",
+    marginRight: 0,
+    marginLeft: 0,
+  },
+  categoryContainer: {
+    marginTop: 35,
+    paddingHorizontal: 24,
+    borderColor: 'white',
+    padding: 10,
+    borderWidth: 3,
+    borderRadius: 10,
+  },
+  inputWithTitle: {
+    flexDirection: "row-reverse",
+    justifyContent: "flex-start"
+  },
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,
@@ -9,6 +30,7 @@ const styles = StyleSheet.create({
   sectionTitle: {
     fontSize: 24,
     fontWeight: '600',
+    textAlign: "right",
     color: Colors.grey,
   },
   sectionDescription: {
@@ -23,7 +45,6 @@ const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
     justifyContent: "center",
-    alignItems: "center",
     marginTop: 22
   },
   modalView: {
@@ -31,7 +52,6 @@ const styles = StyleSheet.create({
     backgroundColor: "black",
     borderRadius: 20,
     padding: 30,
-    alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -44,18 +64,17 @@ const styles = StyleSheet.create({
   button: {
     borderRadius: 20,
     padding: 10,
+    paddingHorizontal: 15,
     elevation: 2
-  },
-  buttonOpen: {
-    backgroundColor: "#F194FF",
   },
   buttonClose: {
     backgroundColor: "#2196F3",
+    textAlign: "center",
+    alignSelf: "center"
   },
   textStyle: {
     color: "white",
     fontWeight: "bold",
-    textAlign: "center"
   },
   modalText: {
     color: "white",
@@ -66,8 +85,6 @@ const styles = StyleSheet.create({
     height: 40,
     width: 80,
     margin: 10,
-    borderWidth: 1,
-    padding: 10,
   }
 });
 

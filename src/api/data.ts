@@ -12,10 +12,16 @@ for (let i = 0; i < 10; i++) {
     categories[i.toString()] = someCategory
 }
 
-export const addItemToCategoryApi = (categoryName: string, newItem: Item): Category => {
-    let category: Category = categories[categoryName]
-    categories[categoryName] = new Category({name: category.name, items: [...category.items, newItem]})
-    return categories[categoryName]
+export const addItemToCategoryApi = (categoryId: string, newItem: Item): Category => {
+    let category: Category = categories[categoryId]
+    categories[categoryId] = new Category({name: category.name, items: [...category.items, newItem]})
+    return categories[categoryId]
+}
+
+export const editCategoryNameApi = (categoryId: string, newName: string): Category => {
+    let category: Category = categories[categoryId]
+    categories[categoryId] = new Category({name: newName, items: category.items})
+    return categories[categoryId]
 }
 
 export const getCategory = (categoryId: string) => {
