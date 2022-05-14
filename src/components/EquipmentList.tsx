@@ -3,7 +3,7 @@ import {FlatList, Text, View} from "react-native";
 import styles from "../app.style";
 import CategoryCard from "./CategoryCard";
 import EquipmentPieChart from "./EquipmentPieChart";
-import {getCategoriesIds, getCategory} from "../api/data";
+import {getCategory} from "../api/data";
 
 const EquipmentList: React.FC<{
   categoriesIds: string[];

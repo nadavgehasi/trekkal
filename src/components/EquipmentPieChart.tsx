@@ -6,8 +6,6 @@ import {Category} from "../types/Category";
 
 
 const EquipmentPieChart : React.FC<{categories: Category[]}> = ({categories}) => {
-    const graphicData = [{ y: 10, x: '5%'},{ y: 90, x: '90%'},{ y: 50, x: '50%'},{ y: 20, x: '20%'},{ y: 70, x: '70%'},]
-
 
     const categoriesToGraphicData = (categories: Category[]) => {
         return categories.map(category => ({x: category.name, y: category.items.map(item => item.weight).reduce((a, b) => a + b, 0)}))
