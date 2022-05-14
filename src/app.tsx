@@ -9,7 +9,7 @@ import {
 import {
   Colors,
 } from 'react-native/Libraries/NewAppScreen';
-import CategoryList from "./components/CategoryList";
+import EquipmentList from "./components/EquipmentList";
 import {getCategoriesIds} from "./api/data";
 
 
@@ -23,7 +23,7 @@ const App = () => {
   return (
     <SafeAreaView style={backgroundStyle}>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <CategoryList categoriesIds={getCategoriesIds()}/>
+      <EquipmentList categoriesIds={getCategoriesIds()}/>
     </SafeAreaView>
   );
 };

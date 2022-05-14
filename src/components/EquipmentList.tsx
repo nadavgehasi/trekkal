@@ -3,7 +3,7 @@ import {FlatList, Text, View} from "react-native";
 import styles from "../app.style";
 import CategoryCard from "./CategoryCard";
 
-const CategoryList: React.FC<{
+const EquipmentList: React.FC<{
   categoriesIds: string[];
 }> = ({categoriesIds}) => {
   return (
@@ -16,4 +16,4 @@ const CategoryList: React.FC<{
   );
 };
 
-export default CategoryList;
+export default EquipmentList;
