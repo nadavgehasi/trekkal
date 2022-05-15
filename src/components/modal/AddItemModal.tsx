@@ -1,7 +1,7 @@
 import {Modal, Pressable, Text, TextInput, View} from "react-native";
-import styles from "../app.style";
+import styles from "../../app.style";
 import React, {useState} from "react";
-import {Item} from "../types/Item";
+import {Item} from "../../types/Item";
 
 const AddItemModal : React.FC<{ isVisible: boolean; addItem: (item: Item) => void; onClose: () => void;}> = ({isVisible, addItem, onClose}) => {
     const [newItemName, setNewItemName] = useState("שם");

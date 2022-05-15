@@ -1,30 +1,30 @@
 import React, {useState} from "react";
-import {FlatList, Image, Modal, Pressable, Text, TextInput, View} from "react-native";
+import {FlatList, Text, View} from "react-native";
 import styles from "../app.style";
-import {addItemToCategoryApi, editCategoryNameApi, getCategory} from "../api/data";
 import {Item} from "../types/Item";
-import AddItemModal from "./AddItemModal";
+import AddItemModal from "./modal/AddItemModal";
 import ItemCard from "./ItemCard";
 import Icon from 'react-native-vector-icons/AntDesign';
-import EditCategoryNameModal from "./EditCategoryNameModal";
+import EditCategoryNameModal from "./modal/EditCategoryNameModal";
+import {Category} from "../types/Category";
 
 const CategoryCard: React.FC<{
-  categoryId: string;
-}> = ({categoryId}) => {
-  const [category, setCategory] = useState(getCategory(categoryId));
+  category: Category;
+  updateCategory: (category: Category) => void;
+}> = ({category, updateCategory}) => {
   const [addItemVisible, setAddItemVisible] = useState(false);
   const [editCategoryNameVisible, setEditCategoryNameVisible] = useState(false);
 
-  const addItem = (item: Item): void => {
+  const addItem = (newItem: Item): void => {
       setAddItemVisible(false);
-      const updatedCategory = addItemToCategoryApi(categoryId, item);
-      setCategory(updatedCategory);
+      let updatedCategory = new Category({id: category.id, name: category.name, items: [...category.items, newItem]})
+      updateCategory(updatedCategory)
   }
 
   const editCategoryName = (newName: string): void => {
       setEditCategoryNameVisible(false);
-      const updatedCategory = editCategoryNameApi(categoryId, newName);
-      setCategory(updatedCategory);
+      let updatedCategory = new Category({id: category.id, name: newName, items: category.items})
+      updateCategory(updatedCategory)
   }
 
   return (

@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import {Modal, Pressable, Text, TextInput, View} from "react-native";
-import styles from "../app.style";
+import styles from "../../app.style";
 
 const EditCategoryNameModal : React.FC<{ isVisible: boolean; currentName: string, editCategoryName: (newName: string) => void; onClose: () => void;}> = ({isVisible, currentName, editCategoryName, onClose}) => {
     const [categoryName, setCategoryName] = useState(currentName);
