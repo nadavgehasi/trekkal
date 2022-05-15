@@ -5,7 +5,7 @@ import styles from "../app.style";
 import {Category} from "../types/Category";
 
 
-const EquipmentPieChart : React.FC<{categories: Category[]}> = ({categories}) => {
+const GearPieChart : React.FC<{categories: Category[]}> = ({categories}) => {
 
     const categoriesToGraphicData = (categories: Category[]) => {
         return categories.map(category => ({x: category.name, y: category.items.map(item => item.weight).reduce((a, b) => a + b, 0)}))
@@ -18,4 +18,4 @@ const EquipmentPieChart : React.FC<{categories: Category[]}> = ({categories}) =>
     )
 }
 
-export default EquipmentPieChart;
+export default GearPieChart;

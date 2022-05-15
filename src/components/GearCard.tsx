@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import {FlatList, View} from "react-native";
 import styles from "../app.style";
 import CategoryCard from "./CategoryCard";
-import EquipmentPieChart from "./EquipmentPieChart";
+import GearPieChart from "./GearPieChart";
 import {basicGear} from "../api/data";
 import {Category} from "../types/Category";
 import {Gear} from "../types/Gear";
@@ -36,7 +36,7 @@ const GearCard: React.FC = ({}) => {
   return (
     <View style={styles.sectionContainer}>
       <FlatList
-        ListHeaderComponent={<EquipmentPieChart categories={gear.categories}/>}
+        ListHeaderComponent={<GearPieChart categories={gear.categories}/>}
         data={gear.categories}
         renderItem={({item}) => <CategoryCard category={item} updateCategory={updateCategory} deleteCategory={deleteCategory}/>}
         ListFooterComponent={<View style={styles.plusIconView}><Icon.Button name={"plus"} backgroundColor={"dimgrey"} iconStyle={styles.icon} style={styles.icon} onPress={() => {setAddCategoryVisible(true)}}/></View>}
