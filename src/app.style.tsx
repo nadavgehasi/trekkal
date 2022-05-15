@@ -27,6 +27,9 @@ const styles = StyleSheet.create({
   pieChartView: {
     alignSelf: "center"
   },
+  plusIconView: {
+    padding: 10,
+  },
   sectionContainer: {
     marginTop: 32,
     paddingHorizontal: 24,

@@ -30,6 +30,11 @@ const CategoryCard: React.FC<{
       updateCategory(updatedCategory);
   }
 
+  const deleteSelf = (): void => {
+      setDeleteCategoryVisible(false);
+      deleteCategory(category)
+  }
+
   return (
     <View style={styles.categoryContainer}>
       <FlatList
@@ -41,12 +46,14 @@ const CategoryCard: React.FC<{
         }
         data={category.items}
         renderItem={({item}) => <ItemCard item={item}/>}
-        ListFooterComponent={
-            <Icon.Button name={"plus"} backgroundColor={"dimgrey"} iconStyle={styles.icon} style={styles.icon} onPress={() => {setAddItemVisible(true)}}/>}
+        ListFooterComponent={<View style={styles.plusIconView}>
+            <Icon.Button name={"plus"} backgroundColor={"dimgrey"} iconStyle={styles.icon} style={styles.icon} onPress={() => {setAddItemVisible(true)}}/></View>}
       />
-      <AddItemModal addItem={addItem} isVisible={addItemVisible} onClose={() => setAddItemVisible(false)}/>
+      <AddItemModal addItem={addItem} isVisible={addItemVisible} onClose={() => {
+          {}
+      }}/>
       <EditCategoryNameModal currentName={category.name} editCategoryName={editCategoryName} isVisible={editCategoryNameVisible} onClose={() => setEditCategoryNameVisible(false)}/>
-      <DeleteCategoryModal isVisible={deleteCategoryVisible} removeCategory={() => {deleteCategory(category)}} onClose={() => setDeleteCategoryVisible(false)}/>
+      <DeleteCategoryModal isVisible={deleteCategoryVisible} removeCategory={deleteSelf} onClose={()=>{}}/>
     </View>
   );
 };
