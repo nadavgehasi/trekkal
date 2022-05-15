@@ -10,6 +10,7 @@ const styles = StyleSheet.create({
     backgroundColor: "dimgrey",
     marginRight: 0,
     marginLeft: 0,
+    alignSelf: "center",
   },
   categoryContainer: {
     marginTop: 35,
