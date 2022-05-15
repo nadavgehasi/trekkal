@@ -26,21 +26,27 @@ const CategoryCard: React.FC<{
       updateCategory(updatedCategory)
   }
 
+  const updateItem = (updatedItem: Item): void => {
+      let filteredItems = category.items.filter((item) => {return item.id != updatedItem.id})
+      let updatedCategory = new Category({id: category.id, name: category.name, items: [...filteredItems, updatedItem]})
+      updateCategory(updatedCategory)
+  }
+
+  const deleteItem = (itemToDelete: Item): void => {
+      let filteredItems = category.items.filter((item) => {return item.id != itemToDelete.id})
+      let updatedCategory = new Category({id: category.id, name: category.name, items: [...filteredItems]})
+      updateCategory(updatedCategory)
+  }
+
   const editCategoryName = (newName: string): void => {
       setEditCategoryNameVisible(false);
       let updatedCategory = new Category({id: category.id, name: newName, items: category.items});
       updateCategory(updatedCategory);
   }
 
-  const deleteSelf = (): void => {
+  const remove = (): void => {
       setDeleteCategoryVisible(false);
       deleteCategory(category)
-  }
-
-  const updateItem = (updatedItem: Item): void => {
-      let filteredItems = category.items.filter((item) => {return item.id != updatedItem.id})
-      let updatedCategory = new Category({id: category.id, name: category.name, items: [...filteredItems, updatedItem]})
-      updateCategory(updatedCategory)
   }
 
   return (
@@ -53,7 +59,7 @@ const CategoryCard: React.FC<{
         </View>
         }
         data={category.items}
-        renderItem={({item}) => <ItemCard item={item} updateItem={updateItem}/>}
+        renderItem={({item}) => <ItemCard item={item} updateItem={updateItem} deleteItem={deleteItem}/>}
         ListFooterComponent={<View style={styles.plusIconView}>
             <Icon.Button name={"plus"} backgroundColor={"dimgrey"} iconStyle={styles.icon} style={styles.icon} onPress={() => {setAddItemVisible(true)}}/></View>}
       />
@@ -61,7 +67,7 @@ const CategoryCard: React.FC<{
           {}
       }}/>
       <EditCategoryNameModal currentName={category.name} editCategoryName={editCategoryName} isVisible={editCategoryNameVisible} onClose={() => setEditCategoryNameVisible(false)}/>
-      <DeleteCategoryModal isVisible={deleteCategoryVisible} removeCategory={deleteSelf} onClose={()=>{}}/>
+      <DeleteCategoryModal isVisible={deleteCategoryVisible} deleteCategory={remove} onClose={()=>{}}/>
     </View>
   );
 };

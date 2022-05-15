@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     padding: 10,
     paddingHorizontal: 15,
-    elevation: 2
+    elevation: 2,
   },
   buttonClose: {
     backgroundColor: "#2196F3",
