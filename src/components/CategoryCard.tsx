@@ -18,8 +18,10 @@ const CategoryCard: React.FC<{
   const [editCategoryNameVisible, setEditCategoryNameVisible] = useState(false);
   const [deleteCategoryVisible, setDeleteCategoryVisible] = useState(false);
 
-  const addItem = (newItem: Item): void => {
+  const addItem = (newItemName: string, newItemWeight: number): void => {
       setAddItemVisible(false);
+      let maxId = Math.max(...category.items.map(item => item.id));
+      let newItem = new Item({id: maxId + 1, name: newItemName, weight: newItemWeight})
       let updatedCategory = new Category({id: category.id, name: category.name, items: [...category.items, newItem]})
       updateCategory(updatedCategory)
   }
@@ -35,6 +37,12 @@ const CategoryCard: React.FC<{
       deleteCategory(category)
   }
 
+  const updateItem = (updatedItem: Item): void => {
+      let filteredItems = category.items.filter((item) => {return item.id != updatedItem.id})
+      let updatedCategory = new Category({id: category.id, name: category.name, items: [...filteredItems, updatedItem]})
+      updateCategory(updatedCategory)
+  }
+
   return (
     <View style={styles.categoryContainer}>
       <FlatList
@@ -45,7 +53,7 @@ const CategoryCard: React.FC<{
         </View>
         }
         data={category.items}
-        renderItem={({item}) => <ItemCard item={item}/>}
+        renderItem={({item}) => <ItemCard item={item} updateItem={updateItem}/>}
         ListFooterComponent={<View style={styles.plusIconView}>
             <Icon.Button name={"plus"} backgroundColor={"dimgrey"} iconStyle={styles.icon} style={styles.icon} onPress={() => {setAddItemVisible(true)}}/></View>}
       />

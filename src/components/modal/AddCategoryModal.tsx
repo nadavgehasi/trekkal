@@ -9,7 +9,6 @@ const AddCategoryModal : React.FC<{ isVisible: boolean; addCategory: (category: 
     const onSubmit = (): void => {
         addCategory(newCategoryName);
         setNewCategoryName("שם");
-
     }
 
     return (

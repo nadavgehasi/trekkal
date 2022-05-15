@@ -5,6 +5,12 @@ const styles = StyleSheet.create({
   title: {
     flexDirection: "row-reverse",
     justifyContent: "space-between",
+    paddingBottom: 15,
+  },
+  itemRow: {
+    flexDirection: "row-reverse",
+    justifyContent: "space-between",
+    paddingBottom: 5,
   },
   icon: {
     backgroundColor: "dimgrey",

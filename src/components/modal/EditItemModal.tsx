@@ -1,15 +1,15 @@
+import React, {useState} from "react";
 import {Modal, Pressable, Text, TextInput, View} from "react-native";
 import styles from "../../app.style";
-import React, {useState} from "react";
+import {Item} from "../../types/Item";
 
-const AddItemModal : React.FC<{ isVisible: boolean; addItem: (newItemName: string, newItemWeight: number) => void; onClose: () => void;}> = ({isVisible, addItem, onClose}) => {
-    const [newItemName, setNewItemName] = useState("שם");
-    const [newItemWeight, setNewItemWeight] = useState(0);
+const EditItemModal : React.FC<{ isVisible: boolean; currentItem: Item, updateItem: (newName: string, newWeight: number) => void; onClose: () => void;}>
+    = ({isVisible, currentItem, updateItem, onClose}) => {
+    const [itemNewName, setItemNewName] = useState(currentItem.name);
+    const [itemNewWeight, setItemNewWeight] = useState(currentItem.weight);
 
     const onSubmit = (): void => {
-        addItem(newItemName, newItemWeight);
-        setNewItemName("שם");
-        setNewItemWeight(0);
+        updateItem(itemNewName, itemNewWeight)
     }
 
     return (
@@ -25,25 +25,25 @@ const AddItemModal : React.FC<{ isVisible: boolean; addItem: (newItemName: strin
                     <Text style={styles.modalText}>שם: </Text>
                     <TextInput
                         style={styles.input}
-                        placeholder="שם"
-                        onChangeText={setNewItemName}
+                        placeholder={currentItem.name}
+                        onChangeText={setItemNewName}
                     />
                 </View>
                 <View style={styles.inputWithTitle}>
                     <Text style={styles.modalText}>משקל: </Text>
                     <TextInput
                         style={styles.input}
-                        placeholder="משקל"
+                        placeholder={currentItem.weight.toString()}
                         keyboardType="numeric"
-                        onChangeText={(value) => setNewItemWeight(Number(value))}
+                        onChangeText={(value) => setItemNewWeight(Number(value))}
                     />
                 </View>
                 <Pressable style={[styles.button, styles.buttonClose]} onPress={onSubmit}>
-                    <Text style={styles.textStyle}>הוסף</Text>
+                    <Text style={styles.textStyle}>עדכן</Text>
                 </Pressable>
             </View>
         </View>
     </Modal>)
 }
 
-export default AddItemModal;
+export default EditItemModal;
