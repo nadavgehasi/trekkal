@@ -39,6 +39,7 @@
   },
   "jest": {
     "preset": "react-native",
+    "transformIgnorePatterns": ["node_modules/(?!(react-native|react-native-vector-icons)/)"],
     "moduleFileExtensions": [
       "ts",
       "tsx",
